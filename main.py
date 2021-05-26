@@ -3,7 +3,7 @@
 import sys
 import os
 import numpy as np
-from PyQt5 import QtCore, QtWidgets, uic
+from PyQt6 import QtCore, QtWidgets, uic
 from skimage.io import imread
 from skimage.transform import SimilarityTransform
 
@@ -323,7 +323,7 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     cim = CIMApp()
     cim.showMaximized()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 # TODO Implement json dumping of dictionary for saving/opening projects - "Clear images" prompts this
 # TODO Add histogram widget for adjusting brightness/contrast of each image
