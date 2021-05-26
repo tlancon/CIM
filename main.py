@@ -30,7 +30,6 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-        self.setStyleSheet("background-color: white;")
 
         # Need some variables to hold information throughout the app
         self.images = {
@@ -55,15 +54,6 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         table_headers = ['Filename', 'Scale', 'Rotation', 'Translation']
         self.tableCurrentFiles.setColumnCount(len(table_headers))
         self.tableCurrentFiles.setHorizontalHeaderLabels(table_headers)
-
-        # Splash of some light HP blue
-        self.buttonOpenReferenceImage.setStyleSheet("background-color: rgb(153,213,239)")
-        self.buttonOpenMovingImages.setStyleSheet("background-color: rgb(153,213,239)")
-        self.buttonClearAllImages.setStyleSheet("background-color: rgb(153,213,239)")
-        self.buttonSaveScript.setStyleSheet("background-color: rgb(153,213,239)")
-        self.buttonClearReference.setStyleSheet("background-color: rgb(153,213,239)")
-        self.buttonClearMoving.setStyleSheet("background-color: rgb(153,213,239)")
-        self.buttonRegister.setStyleSheet("background-color: rgb(153,213,239)")
         
         # Connect methods to buttons
         self.buttonOpenReferenceImage.clicked.connect(self.open_reference_image)
@@ -332,7 +322,7 @@ if __name__ == '__main__':
 # TODO In napari script, add points layer at end with templated point type, size, and color
 
 # CHANGELOG
-# 21Apr28 TL - Minimum working version. Added toolbars to Matplotlib plots. Added some HP blue. Documented all methods.
+# 21Apr28 TL - Minimum working version. Added toolbars to Matplotlib plots. Added some - blue. Documented all methods.
 # 21Apr29 TL - Made background white.
 # 21May14 TL - Changed \ to / in file paths in napari scripts so they run without manual editing. Added message to
 #   indicate when script is finished writing.
