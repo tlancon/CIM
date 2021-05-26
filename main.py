@@ -3,7 +3,7 @@
 import sys
 import os
 import numpy as np
-from PyQt6 import QtCore, QtWidgets, uic
+from PyQt5 import QtCore, QtWidgets, uic
 from skimage.io import imread
 from skimage.transform import SimilarityTransform
 
