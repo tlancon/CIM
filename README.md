@@ -1,2 +1,3 @@
-# CIM
- Use landmarks to align 2D images and view them within each others context in napari
+# Contextual Image Mapping
+ Align a series of images to a single reference using landmarks, then create a
+ napari script to open them in the context of one another. 
