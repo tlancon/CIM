@@ -35,3 +35,7 @@ button in the top-right.
    
    * Run this script separately and napari will open with each of the registered images as
      a new layer with the proper transform applied.
+     
+Numbered steps above correspond to the locations indicated in the screenshot below:
+
+![The CIM main window.](docs/main_window.png)
