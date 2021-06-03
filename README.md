@@ -38,4 +38,4 @@ button in the top-right.
      
 Numbered steps above correspond to the locations indicated in the screenshot below:
 
-![The CIM main window.](docs/images/main_window.png)
+![The CIM main window.](docs/screenshots/main_window.png)
