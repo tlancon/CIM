@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,1">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayoutControls" stretch="0,0,0,1,0">
+       <layout class="QHBoxLayout" name="horizontalLayoutControls" stretch="0,0,0,1,0,0">
         <item>
          <widget class="QPushButton" name="buttonOpenReferenceImage">
           <property name="text">
@@ -69,6 +69,19 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="buttonHelp">
+          <property name="maximumSize">
+           <size>
+            <width>23</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>?</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
@@ -84,22 +97,8 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayoutLandmarks" stretch="0,0">
         <item>
-         <layout class="QGridLayout" name="gridLayoutReference" rowstretch="0,1,0" columnstretch="0,1,0">
-          <item row="0" column="0">
-           <widget class="QLabel" name="labelReference">
-            <property name="text">
-             <string>Reference</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="buttonClearReference">
-            <property name="text">
-             <string>Clear reference landmarks</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
+         <layout class="QGridLayout" name="gridLayoutReference" rowstretch="0,0,0" columnstretch="0,0,0,0">
+          <item row="2" column="2">
            <spacer name="horizontalSpacerReference">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -112,7 +111,14 @@
             </property>
            </spacer>
           </item>
-          <item row="1" column="0" colspan="3">
+          <item row="2" column="0">
+           <widget class="QPushButton" name="buttonClearReference">
+            <property name="text">
+             <string>Clear reference landmarks</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="4">
            <widget class="MplWidget" name="mplReferenceImage" native="true">
             <property name="minimumSize">
              <size>
@@ -122,13 +128,34 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1" colspan="2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelReference">
+            <property name="text">
+             <string>Reference</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="buttonLandmarkColorReference">
+            <property name="text">
+             <string>Choose landmark color...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="3">
            <widget class="QComboBox" name="comboSelectReference"/>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QGridLayout" name="gridLayoutMoving" rowstretch="0,1,0" columnstretch="0,1,0">
+         <layout class="QGridLayout" name="gridLayoutMoving" rowstretch="0,0,0" columnstretch="0,0,0,0">
+          <item row="2" column="3">
+           <widget class="QPushButton" name="buttonRegister">
+            <property name="text">
+             <string>Register</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="labelMoving">
             <property name="text">
@@ -136,21 +163,20 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="buttonClearMoving">
-            <property name="text">
-             <string>Clear moving landmarks</string>
+          <item row="1" column="0" colspan="4">
+           <widget class="MplWidget" name="mplMovingImage" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
             </property>
            </widget>
+          </item>
+          <item row="0" column="2" colspan="2">
+           <widget class="QComboBox" name="comboSelectMoving"/>
           </item>
           <item row="2" column="2">
-           <widget class="QPushButton" name="buttonRegister">
-            <property name="text">
-             <string>Register</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
            <spacer name="horizontalSpacerMoving">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -163,18 +189,19 @@
             </property>
            </spacer>
           </item>
-          <item row="1" column="0" colspan="3">
-           <widget class="MplWidget" name="mplMovingImage" native="true">
-            <property name="minimumSize">
-             <size>
-              <width>300</width>
-              <height>300</height>
-             </size>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="buttonClearMoving">
+            <property name="text">
+             <string>Clear moving landmarks</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1" colspan="2">
-           <widget class="QComboBox" name="comboSelectMoving"/>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="buttonLandmarkColorMoving">
+            <property name="text">
+             <string>Choose landmark color...</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
