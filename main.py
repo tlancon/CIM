@@ -4,6 +4,7 @@ import sys
 import os
 import numpy as np
 from PyQt5 import QtCore, QtWidgets, uic
+from PyQt5.QtGui import QColor
 from skimage.io import imread
 from skimage.transform import SimilarityTransform
 
@@ -49,8 +50,12 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.reference_data = ''
         self.moving_data = ''
         self.script_path = ''
-        self.reference_landmark_color = '00FF00'
-        self.moving_landmark_color = 'FF0000'
+        self.ref_lm_color = 'a7de68'
+        self.mov_lm_color = 'de8768'
+
+        # Set up landmark color icons
+        self.toolLandmarkColorReference.setStyleSheet(f"background-color : #{self.ref_lm_color}")
+        self.toolLandmarkColorMoving.setStyleSheet(f"background-color : #{self.mov_lm_color}")
 
         # Initialize the table
         table_headers = ['Filename', 'Scale', 'Rotation', 'Translation']
@@ -65,8 +70,8 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.buttonClearReference.clicked.connect(self.clear_reference_landmarks)
         self.buttonClearMoving.clicked.connect(self.clear_moving_landmarks)
         self.buttonRegister.clicked.connect(self.register_images)
-        self.buttonLandmarkColorReference.clicked.connect(self.choose_reference_color)
-        self.buttonLandmarkColorMoving.clicked.connect(self.choose_moving_color)
+        self.toolLandmarkColorReference.clicked.connect(self.choose_reference_color)
+        self.toolLandmarkColorMoving.clicked.connect(self.choose_moving_color)
         self.buttonHelp.clicked.connect(self.show_documentation)
 
         # Connect methods to double clicks within matplotlib canvases
@@ -184,7 +189,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
             for i, p in enumerate(self.images[mov_id]['ref_landmarks']):
                 self.mplReferenceImage.canvas.ax.annotate(f"{i+1}", xy=(p[1], p[0]))
                 self.mplReferenceImage.canvas.ax.plot(p[1], p[0], marker='o',
-                                                      color=self.reference_landmark_color.name())
+                                                      color=self.ref_lm_color.name())
         self.mplReferenceImage.canvas.draw()
         
     def show_moving_image(self):
@@ -201,7 +206,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
             for i, p in enumerate(self.images[mov_id]['mov_landmarks']):
                 self.mplMovingImage.canvas.ax.annotate(f"{i+1}", xy=(p[1], p[0]))
                 self.mplMovingImage.canvas.ax.plot(p[1], p[0], marker='o',
-                                                   color=self.moving_landmark_color.name())
+                                                   color=self.mov_lm_color.name())
         self.mplMovingImage.canvas.draw()
         self.show_reference_image()
     
@@ -222,7 +227,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
             n_ref_landmarks = len(self.images[mov_id]['ref_landmarks'])
             self.mplReferenceImage.canvas.ax.annotate(f"{n_ref_landmarks}", xy=(x, y))
             self.mplReferenceImage.canvas.ax.plot(x, y, marker='o',
-                                                  color=self.reference_landmark_color.name())
+                                                  color=self.ref_lm_color.name())
             self.mplReferenceImage.canvas.draw()
             self.update_table()
 
@@ -241,7 +246,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
             n_mov_landmarks = len(self.images[mov_id]['mov_landmarks'])
             self.mplMovingImage.canvas.ax.annotate(f"{n_mov_landmarks}", xy=(x, y))
             self.mplMovingImage.canvas.ax.plot(x, y, marker='o',
-                                               color=self.moving_landmark_color.name())
+                                               color=self.mov_lm_color.name())
             self.mplMovingImage.canvas.draw()
             self.update_table()
 
@@ -323,7 +328,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         color = QtWidgets.QColorDialog.getColor()
         if color.isValid():
-            self.reference_landmark_color = color
+            self.ref_lm_color = color
 
     def choose_moving_color(self):
         """
@@ -331,7 +336,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         color = QtWidgets.QColorDialog.getColor()
         if color.isValid():
-            self.moving_landmark_color = color
+            self.mov_lm_color = color
 
     def show_documentation(self):
         """

@@ -97,8 +97,8 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayoutLandmarks" stretch="0,0">
         <item>
-         <layout class="QGridLayout" name="gridLayoutReference" rowstretch="0,0,0" columnstretch="0,0,0,0">
-          <item row="2" column="2">
+         <layout class="QGridLayout" name="gridLayoutReference" rowstretch="0,0,0" columnstretch="0,0,0,0,0">
+          <item row="2" column="3">
            <spacer name="horizontalSpacerReference">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -111,6 +111,9 @@
             </property>
            </spacer>
           </item>
+          <item row="0" column="1" colspan="4">
+           <widget class="QComboBox" name="comboSelectReference"/>
+          </item>
           <item row="2" column="0">
            <widget class="QPushButton" name="buttonClearReference">
             <property name="text">
@@ -118,7 +121,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="4">
+          <item row="1" column="0" colspan="5">
            <widget class="MplWidget" name="mplReferenceImage" native="true">
             <property name="minimumSize">
              <size>
@@ -135,24 +138,35 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QPushButton" name="buttonLandmarkColorReference">
+          <item row="2" column="2">
+           <widget class="QToolButton" name="toolLandmarkColorReference">
             <property name="text">
-             <string>Choose landmark color...</string>
+             <string>...</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1" colspan="3">
-           <widget class="QComboBox" name="comboSelectReference"/>
+          <item row="2" column="1">
+           <widget class="QLabel" name="labelLandmarkColorReference">
+            <property name="text">
+             <string>Choose landmark color:</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QGridLayout" name="gridLayoutMoving" rowstretch="0,0,0" columnstretch="0,0,0,0">
-          <item row="2" column="3">
+         <layout class="QGridLayout" name="gridLayoutMoving" rowstretch="0,0,0" columnstretch="0,0,0,0,0">
+          <item row="2" column="4">
            <widget class="QPushButton" name="buttonRegister">
             <property name="text">
              <string>Register</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QToolButton" name="toolLandmarkColorMoving">
+            <property name="text">
+             <string>...</string>
             </property>
            </widget>
           </item>
@@ -163,7 +177,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="4">
+          <item row="1" column="0" colspan="5">
            <widget class="MplWidget" name="mplMovingImage" native="true">
             <property name="minimumSize">
              <size>
@@ -173,10 +187,10 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2" colspan="2">
+          <item row="0" column="3" colspan="2">
            <widget class="QComboBox" name="comboSelectMoving"/>
           </item>
-          <item row="2" column="2">
+          <item row="2" column="3">
            <spacer name="horizontalSpacerMoving">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -197,9 +211,9 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QPushButton" name="buttonLandmarkColorMoving">
+           <widget class="QLabel" name="labelLandmarkColorMoving">
             <property name="text">
-             <string>Choose landmark color...</string>
+             <string>Choose landmark color:</string>
             </property>
            </widget>
           </item>
