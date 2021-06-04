@@ -5,7 +5,7 @@ with open('requirements.txt', 'r') as fc:
 
 setuptools.setup(
     name='CIM',
-    version='0.0.1',
+    version='0.1.0',
     author='Trevor Lancon',
     description='Map images to one another with landmarks and create a script view them in napari.',
     long_description='Align a series of images to a single reference using landmarks,'

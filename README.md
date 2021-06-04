@@ -23,9 +23,9 @@
      See documentation on these toolbars [here](https://matplotlib.org/3.2.2/users/navigation_toolbar.html).
      
 6. When at least two landmarks are added to each image, you can click the "Register" button
-in the bottom-right to compute a registration matrix for that moving image.
+in the bottom-right to compute a transformation matrix for that moving image.
    
-   * This matrix is updated in the table.
+   * This transformation matrix is updated in the table.
  
 7. If you opened multiple moving images, select another moving image in the dropdown above
    the moving image display to repeat for more of them.
@@ -35,6 +35,8 @@ button in the top-right.
    
    * Run this script separately and napari will open with each of the registered images as
      a new layer with the proper transform applied.
+     
+   * napari will need to be installed separately for this to work: `pip install napari`
      
 Numbered steps above correspond to the locations indicated in the screenshot below:
 
