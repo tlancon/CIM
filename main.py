@@ -49,7 +49,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.reference_data = ''
         self.moving_data = ''
         self.script_path = ''
-        self.reference_landmark_color = 'FF0000'
+        self.reference_landmark_color = '00FF00'
         self.moving_landmark_color = 'FF0000'
 
         # Initialize the table
@@ -345,15 +345,3 @@ if __name__ == '__main__':
     cim = CIMApp()
     cim.showMaximized()
     sys.exit(app.exec())
-
-# TODO Implement json dumping of dictionary for saving/opening projects - "Clear images" prompts this
-# TODO Add histogram widget for adjusting brightness/contrast of each image
-# TODO Fix bug when "Clear all images" pressed while only reference image is open
-# TODO Dump dictionary of registration landmarks into docstring in napari script
-# TODO In napari script, add points layer at end with templated point type, size, and color
-
-# CHANGELOG
-# 21Apr28 TL - Minimum working version. Added toolbars to Matplotlib plots. Added some - blue. Documented all methods.
-# 21Apr29 TL - Made background white.
-# 21May14 TL - Changed \ to / in file paths in napari scripts so they run without manual editing. Added message to
-#   indicate when script is finished writing.
