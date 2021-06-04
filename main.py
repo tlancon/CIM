@@ -50,12 +50,9 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.reference_data = ''
         self.moving_data = ''
         self.script_path = ''
-        self.ref_lm_color = 'a7de68'
-        self.mov_lm_color = 'de8768'
-
-        # Set up landmark color icons
-        self.toolLandmarkColorReference.setStyleSheet(f"background-color : #{self.ref_lm_color}")
-        self.toolLandmarkColorMoving.setStyleSheet(f"background-color : #{self.mov_lm_color}")
+        self.ref_lm_color = QColor(219, 121, 108)
+        self.mov_lm_color = QColor(108, 206, 219)
+        self.refresh_landmark_colors()
 
         # Initialize the table
         table_headers = ['Filename', 'Scale', 'Rotation', 'Translation']
@@ -77,6 +74,13 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # Connect methods to double clicks within matplotlib canvases
         self.mplReferenceImage.canvas.mpl_connect('button_press_event', self.reference_image_dbl_clicked)
         self.mplMovingImage.canvas.mpl_connect('button_press_event', self.moving_image_dbl_clicked)
+
+    def refresh_landmark_colors(self):
+        """
+        Updates the tool buttons to choose landmark colors with the currently selected landmark colors.
+        """
+        self.toolLandmarkColorReference.setStyleSheet(f"background-color : {self.ref_lm_color.name()}")
+        self.toolLandmarkColorMoving.setStyleSheet(f"background-color : {self.mov_lm_color.name()}")
 
     def keyPressEvent(self, event):
         """
@@ -329,6 +333,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         color = QtWidgets.QColorDialog.getColor()
         if color.isValid():
             self.ref_lm_color = color
+        self.refresh_landmark_colors()
 
     def choose_moving_color(self):
         """
@@ -337,6 +342,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         color = QtWidgets.QColorDialog.getColor()
         if color.isValid():
             self.mov_lm_color = color
+        self.refresh_landmark_colors()
 
     def show_documentation(self):
         """
