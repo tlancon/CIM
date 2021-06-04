@@ -7,9 +7,10 @@ from PyQt5 import QtCore, QtWidgets, uic
 from PyQt5.QtGui import QColor
 from skimage.io import imread
 from skimage.transform import SimilarityTransform
+from apps import documentation
 
 # Need to be able to find mplwidget.py
-custom_app_path = f"{os.path.dirname(os.path.realpath(__file__))}/app/"
+custom_app_path = f"{os.path.dirname(os.path.realpath(__file__))}/apps/"
 if custom_app_path not in sys.path:
     sys.path.append(custom_app_path)
 
@@ -20,7 +21,7 @@ if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
     QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
 
 # Load Qt Designer file
-qt_designer_file = os.path.abspath('./app/interface.ui')
+qt_designer_file = os.path.abspath('apps/interface.ui')
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qt_designer_file)
 
 
@@ -32,7 +33,7 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
-        # Need some variables to hold information throughout the app
+        # Need some variables to hold information throughout the apps
         self.images = {
             'reference': {
                 'directory': '',
@@ -346,9 +347,9 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def show_documentation(self):
         """
-        Displays HTML documentation to the user.
+        Loads and displays simple HTML documentation.
         """
-        print('Showing docs')
+        self.docs = documentation.Documentation()
 
 
 if __name__ == '__main__':
