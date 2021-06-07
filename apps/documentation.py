@@ -8,11 +8,11 @@ from PyQt5.QtCore import QUrl
 class Documentation(QWidget):
     def __init__(self):
         super().__init__()
-        self.init_UI()
-
-    def init_UI(self):
-        vbox = QVBoxLayout(self)
         self.webEngineView = QWebEngineView()
+        self.init_ui()
+
+    def init_ui(self):
+        vbox = QVBoxLayout(self)
         self.load_page()
         vbox.addWidget(self.webEngineView)
         self.setLayout(vbox)
