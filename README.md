@@ -37,6 +37,9 @@ button in the top-right.
      a new layer with the proper transform applied.
      
    * napari will need to be installed separately for this to work: `pip install napari`
+    
+9. For more detailed instructions and more information, open the documentation from inside the
+app.
      
 Numbered steps above correspond to the locations indicated in the screenshot below:
 
