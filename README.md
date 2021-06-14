@@ -2,7 +2,13 @@
  Align a series of images to a single reference using landmarks, then create a
  napari script to open them in the context of one another.
 
+## Go from this...
+
 ![The CIM main window.](docs/screenshots/completed_cim_project.png)
+
+## ...to this!
+
+![Aligned images in napari.](docs/screenshots/overlay_in_napari.png)
 
 ## Quick Start
 1. Download this repository as a .zip and extract
