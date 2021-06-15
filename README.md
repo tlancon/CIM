@@ -12,7 +12,7 @@
 
 ## Quick Start
 1. Download this repository as a .zip and extract
-2. Install requirements from `requirements.py`
+2. Install requirements from `requirements.txt`
 3. Run `main.py`
 4. Click the "?" button in the top-right of the CIM window to open the documentation
 5. Navigate to the "Quick Start" page of the documentation for brief instructions
