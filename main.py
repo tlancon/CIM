@@ -286,20 +286,19 @@ class CIMApp(QtWidgets.QMainWindow, Ui_MainWindow):
         if not f:
             return
         f.write('import os\nimport napari\nfrom skimage.io import imread\n\n')
-        f.write('with napari.gui_qt():\n')
-        f.write('\tviewer = napari.Viewer()\n')
+        f.write('viewer = napari.Viewer()\n')
         for i in self.images:
             p = f"{self.images[i]['directory']}\\{self.images[i]['filename']}".replace('\\', '/')
             if i == 'reference':
-                f.write(f"\t{i} = viewer.add_image(imread('{p}'), name='{self.images[i]['filename']}')\n")
-                f.write(f"\t{i}.scale = (1.0, 1.0)\n")
-                f.write(f"\t{i}.rotate = 0.0\n")
-                f.write(f"\t{i}.translate = (0.0, 0.0)\n")
+                f.write(f"{i} = viewer.add_image(imread('{p}'), name='{self.images[i]['filename']}')\n")
+                f.write(f"{i}.scale = (1.0, 1.0)\n")
+                f.write(f"{i}.rotate = 0.0\n")
+                f.write(f"{i}.translate = (0.0, 0.0)\n")
             if self.images[i]['registered'] is True:
-                f.write(f"\t{i} = viewer.add_image(imread('{p}'), name='{self.images[i]['filename']}')\n")
-                f.write(f"\t{i}.scale = {self.images[i]['scale']}\n")
-                f.write(f"\t{i}.rotate = {self.images[i]['rotation']}\n")
-                f.write(f"\t{i}.translate = {self.images[i]['translation']}\n")
+                f.write(f"{i} = viewer.add_image(imread('{p}'), name='{self.images[i]['filename']}')\n")
+                f.write(f"{i}.scale = {self.images[i]['scale']}\n")
+                f.write(f"{i}.rotate = {self.images[i]['rotation']}\n")
+                f.write(f"{i}.translate = {self.images[i]['translation']}\n")
         f.close()
         self.statusbar.showMessage(f"Script written to {script_file}.", 5000)
         return script_file
